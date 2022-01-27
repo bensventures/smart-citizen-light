@@ -17,16 +17,18 @@ export function App() {
 
     useInterval(
         async () => {
-            await fetchDevice();
+            if (!document.hidden) {
+                await fetchDevice();
+            }
         },
-        15000,
+        30000,
     );
 
     return (
         <article className="device">
-            <h3>
+            <h1 className="device-name">
                 {device.name}
-            </h3>
+            </h1>
             <ul className="sensors">
                 {device.data.sensors.filter(sensor => !skipSensor.includes(sensor.id)).map(sensor => (
                 <li key={sensor.id} className="sensor-item">
