@@ -16,9 +16,14 @@ export function App() {
         setDeviceId(deviceId);
     }
 
+    function removeAndSaveDeviceId() {
+        window.localStorage.removeItem('device_id');
+        setDeviceId(null);
+    }
+
     return (
         selectedDeviceId ? 
-        <Device deviceId={selectedDeviceId} />
+        <Device deviceId={selectedDeviceId} removeDevice={removeAndSaveDeviceId} />
         :
         <DeviceSelector setDeviceId={setAndSaveDeviceId} />
     );
