@@ -5,7 +5,8 @@
   "scripts": {
     "start": "npx parcel src/index.html",
     "build": "parcel build ./src/index.html --public-url ./",
-    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose && npm run clean",
+    "clean": "rm -rf .parcel-cache"
   },
   "repository": {
     "type": "git",

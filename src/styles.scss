@@ -11,12 +11,16 @@ html, body {
     padding: 0;
     margin: 0;
     font-family: 'Lato', sans-serif;
+    font-size: 16px;
     color:rgb(200, 200, 200);
 }
 
 .app {
     height: 100%;
     background-image: linear-gradient(-20deg, #132a38 0%, #252038 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .device-selector {
@@ -152,4 +156,15 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+@media screen and (min-height: 569px) {
+    html {
+      font-size: calc(16px + 6 * ((100vh - 569px) / 680));
+    }
+  }
+  @media screen and (min-width: 1000px) {
+    html {
+      font-size: 22px;
+    }
 }
