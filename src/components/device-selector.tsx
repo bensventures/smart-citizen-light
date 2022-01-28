@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 export default function DeviceSelector(props: any) {
-    const [deviceId, setDeviceId] = useState('14042');
+    const [deviceId, setDeviceId] = useState('');
 
     return (
         <div className="device-selector">
