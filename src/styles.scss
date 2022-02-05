@@ -162,9 +162,16 @@ input[type=number] {
     html {
       font-size: calc(16px + 6 * ((100vh - 569px) / 680));
     }
-  }
-  @media screen and (min-width: 1000px) {
+}
+
+@media screen and (min-width: 1000px) {
     html {
       font-size: 22px;
+    }
+
+    .device { 
+        .sensors {
+            grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+        }
     }
 }
