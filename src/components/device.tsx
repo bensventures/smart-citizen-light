@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import cn from 'classnames';
+
 import { useInterval } from '../hooks';
 
 import Sensor from './sensor';
@@ -9,6 +11,7 @@ const skipSensor = [10];
 export default function Device(props: any) {
     const [device, setDevice] = useState({name: '', data: { sensors: []}, last_reading_at: new Date()});
     const [isLoading, setLoading] = useState(true);
+    const [openSensor, setOpenSensor] = useState(null);
 
     async function fetchDevice() {
         const response = await fetch(apiUrl + props.deviceId);
@@ -46,11 +49,21 @@ export default function Device(props: any) {
                 </span>
             </header>
             <ul className="sensors">
-                {device.data.sensors.filter(sensor => !skipSensor.includes(sensor.id)).map(sensor => (
-                <li key={sensor.id} className="sensor-item">
-                    <Sensor {...sensor} />
-                </li>
-                ))}
+                {device.data.sensors.filter(sensor => !skipSensor.includes(sensor.id)).map(sensor => {
+                    const isOpened = openSensor && sensor.id === openSensor;
+
+                    return (
+                        <li key={sensor.id} className={cn('sensor-item', { 'is-opened': isOpened })}>
+                            <Sensor 
+                                {...sensor} 
+                                isOpened={isOpened} 
+                                deviceId={props.deviceId}
+                                handleClick={() => setOpenSensor(sensor.id)}
+                                handleClose={() => setOpenSensor(null)}
+                            />
+                        </li>
+                    );
+                })}
             </ul>
             <footer>
                 <span>

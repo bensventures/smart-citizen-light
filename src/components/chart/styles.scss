@@ -1,0 +1,34 @@
+
+.chart {
+    flex: 1 1 auto;
+
+    #sc-charts.column {
+        height: 50%;
+        --color: linear-gradient(-20deg, #325d7a 0%, #3a3983 100%);
+        --primary-axis-color: rgba(104, 104, 104, .3);
+        --secondary-axes-color: rgba(104, 104, 104, .3);
+
+        .date-label {
+            position: absolute;
+            width: 35px;
+            font-size: 0.6rem;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 4px 0 0 4px;
+        }
+
+        tbody td:hover {
+            background: #1e6fbb;
+        }
+    
+        .tooltip {
+            z-index: 9;
+
+            .value {
+                font-size: .8rem;
+                font-weight: 600;
+                display: block;
+            }
+        }
+    }
+}

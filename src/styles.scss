@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400;900&display=swap');
 
 :root {
+    --color-text: rgb(200, 200, 200)
     --color-primary: #b0b6ec;
     --color-primary-dark: #555980;
 }
@@ -12,7 +13,7 @@ html, body {
     margin: 0;
     font-family: 'Lato', sans-serif;
     font-size: 16px;
-    color:rgb(200, 200, 200);
+    color: rgb(200, 200, 200);
 }
 
 .app {
@@ -93,38 +94,18 @@ html, body {
         background: rgba(255, 255, 255, 0.05);
         padding: 1rem;
         border-radius: .5rem;
+        overflow: hidden;
+        transition: all 500ms ease-out;
+        cursor: pointer;
 
-        .sensor {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .name {
-            flex: 1 0 auto;
-            font-size: .8rem;
-            font-family: 'Lato', sans-serif;
-            margin-bottom: .5rem;
-            color: var(--color-primary);
-        }
-
-        .metric {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-        }
-
-        .value, .unit {
-            font-family: 'Lato', sans-serif;
-        }
-        
-        .value {
-            font-size: 1.3rem;
-            font-weight: 900;
-        }
-
-        .unit {
-            color: rgb(180, 180, 180);
+        &.is-opened {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            cursor: default;
+            background: linear-gradient(-20deg, #062335 0%, #272041 100%);
         }
     }
 
